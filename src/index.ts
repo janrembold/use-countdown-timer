@@ -27,6 +27,7 @@ export function useCountdownTimer({
 }: ICountdownTimerParams): CountdownTimerResults {
   const [countdown, setCountdown] = useState(timer);
   const [canStart, setCanStart] = useState(autostart);
+  const [expired, setExpired] = useState(false);
 
   function start(): void {
     setCanStart(true);
@@ -43,6 +44,7 @@ export function useCountdownTimer({
   const expire = useCallback(() => {
     setCanStart(false);
     setCountdown(timer);
+    setExpired(true);
     if (onExpire && typeof onExpire === 'function') {
       onExpire();
     }
