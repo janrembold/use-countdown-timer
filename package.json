@@ -26,9 +26,12 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w",
+    "deploy": "gh-pages -d example/build",
+    "lint": "eslint --ext js,ts src/**/*",
+    "lint:fix": "npm run lint -- --fix",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "pretty:check": "prettier --check src/**/*.ts",
+    "start": "rollup -c -w"
   },
   "dependencies": {},
   "peerDependencies": {

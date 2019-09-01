@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/interface-name-prefix
 export interface ICountdownTimerParams {
   timer: number;
   interval?: number;
@@ -9,6 +10,7 @@ export interface ICountdownTimerParams {
   onReset?: () => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/prefer-interface
 export type CountdownTimerResults = {
   countdown: number;
   start: () => void;
@@ -52,7 +54,7 @@ export function useCountdownTimer({
   }, [countdown]);
 
   useEffect(() => {
-    function tick() {
+    function tick(): void {
       if (
         countdownRef.current / 1000 <= 0 ||
         (expireImmediate && (countdownRef.current - interval) / 1000 <= 0)
