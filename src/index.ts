@@ -13,6 +13,7 @@ export interface ICountdownTimerParams {
 // eslint-disable-next-line @typescript-eslint/prefer-interface
 export type CountdownTimerResults = {
   countdown: number;
+  expired: boolean;
   start: () => void;
   reset: () => void;
 };
@@ -36,6 +37,7 @@ export function useCountdownTimer({
   const reset = useCallback(() => {
     setCanStart(false);
     setCountdown(timer);
+    setExpired(false);
     if (onReset && typeof onReset === 'function') {
       onReset();
     }
@@ -76,6 +78,7 @@ export function useCountdownTimer({
 
   return {
     countdown,
+    expired,
     start,
     reset,
   };
