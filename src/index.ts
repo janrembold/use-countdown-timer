@@ -43,12 +43,12 @@ export function useCountdownTimer({
 
   const expire = useCallback(() => {
     setCanStart(false);
-    setCountdown(timer);
+    setCountdown(0);
     setExpired(true);
     if (onExpire && typeof onExpire === 'function') {
       onExpire();
     }
-  }, [timer, onExpire]);
+  }, [onExpire]);
 
   const countdownRef = useRef<number>(timer);
   useEffect(() => {
