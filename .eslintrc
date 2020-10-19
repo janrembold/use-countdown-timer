@@ -18,11 +18,7 @@
     "prettier/prettier": ["error"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/interface-name-prefix": [
-      "error",
-      { "prefixWithI": "always" }
-    ]
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
   "overrides": [
     {
@@ -32,6 +28,7 @@
       },
       "plugins": ["jest"],
       "rules": {
+        "@typescript-eslint/no-floating-promises": "off",
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",

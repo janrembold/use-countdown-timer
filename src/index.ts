@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export interface ICountdownTimerParams {
+export interface CountdownTimerParams {
   timer: number;
   interval?: number;
   autostart?: boolean;
@@ -24,7 +24,7 @@ export function useCountdownTimer({
   expireImmediate = false,
   onExpire,
   onReset,
-}: ICountdownTimerParams): CountdownTimerResults {
+}: CountdownTimerParams): CountdownTimerResults {
   const [countdown, setCountdown] = useState(timer);
   const [canStart, setCanStart] = useState(autostart);
   const [isRunning, setIsRunning] = useState(false);
@@ -71,7 +71,7 @@ export function useCountdownTimer({
       ) {
         expire();
       } else {
-        setCountdown(prev => prev - interval);
+        setCountdown((prev) => prev - interval);
       }
     }
 
